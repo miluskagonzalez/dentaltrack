@@ -1,7 +1,13 @@
 import React, { Component, Fragment } from 'react';
+import M from "materialize-css";
 import logo from '../images/logo-small.png'
 
 class Login extends Component {
+
+  componentDidMount() {
+    M.AutoInit();
+  }
+
   render () {
     return (
     <Fragment>
