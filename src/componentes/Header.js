@@ -16,12 +16,6 @@ class Login extends Component {
   render () {
     return (
       <Fragment>
-        <ul id="dropdown1" className="dropdown-content">
-          <li><a href="#!">one</a></li>
-          <li><a href="#!">two</a></li>
-          <li className="divider"></li>
-          <li><a href="#!">Cerrar sesión<i className="material-icons">exit_to_app</i></a></li>
-        </ul>
         <div className="navbar-fixed">
           <nav className="white grey-text">
             <div className="nav-wrapper">
@@ -52,6 +46,12 @@ class Login extends Component {
                     <i className="material-icons avatar">account_circle</i>Odontología San Pedro
                     <i className="material-icons right">arrow_drop_down</i>
                   </a>
+                  <ul id="dropdown1" className="dropdown-content">
+          <li><a href="#!">one</a></li>
+          <li><a href="#!">two</a></li>
+          <li className="divider"></li>
+          <li><a href="#!">Cerrar sesión<i className="material-icons">exit_to_app</i></a></li>
+        </ul>
                 </li>
               </ul>
             </div>
