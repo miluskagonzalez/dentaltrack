@@ -1,9 +1,11 @@
-import React, { Component, Fragment, useCallback } from 'react';
+import React, { Component, Fragment, useCallback, useState } from 'react';
 import { withRouter } from 'react-router';
 import app from '../firebase/base'
 import logo from '../images/logo-small.png'
 
 const Login = ({history}) => {
+
+  const [hidden, setHidden] = useState(true)
   const state = {
     login: true,
     username: '',
@@ -20,8 +22,9 @@ const Login = ({history}) => {
   }
 
   const toggleHidden = () => {
-    this.setState({
-      hidden: !this.state.hidden,
+    console.log(hidden)
+    setHidden({
+      hidden: !hidden,
     })
   }
 
@@ -33,7 +36,7 @@ const Login = ({history}) => {
   const changeView = () => {
       state.login = false
   }
-    const {view, username, email, password, hidden, login} = state;
+    const {view, username, email, password, login} = state;
 
     return (
     <Fragment>
@@ -45,18 +48,18 @@ const Login = ({history}) => {
           <h6 className="center-align brand-text"><b>{login ? 'INICIAR SESIÓN' : 'REGISTRARME'}</b></h6>
           <form className="section row" onSubmit={handleSubmit}>
             <div className="input-field col s12 m6 offset-m3 l4 offset-l4">
-              <input type="text" name='username' value={username} onChange={onChange}/>
+              <input type="text" name='username'/>
               <label>Usuario</label>
             </div>
             {!login &&
               <div className="input-field col s12 m6 offset-m3 l4 offset-l4">
-                <input type="email" name='email' value={email} onChange={onChange}/>
+                <input type="email" name='email'/>
                 <label>E-mail</label>
               </div>
             }
             <div className="input-field col s12 m6 offset-m3 l4 offset-l4">
               <i className="material-icons suffix pointer" onClick={toggleHidden}>{hidden ? 'visibility' : 'visibility_off'}</i>
-              <input type={hidden ? 'password' : 'text'} name='password' value={password} onChange={onChange}/>
+              <input type={hidden ? 'password' : 'text'} name='password'/>
               <label>Contraseña</label>
             </div>
             <div className="input-field col s12 center-align">
