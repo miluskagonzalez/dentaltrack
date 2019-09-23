@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/dentaltrack/static/css/main.42b411c8.chunk.css",
+    "main.js": "/dentaltrack/static/js/main.a92ac3d6.chunk.js",
+    "main.js.map": "/dentaltrack/static/js/main.a92ac3d6.chunk.js.map",
+    "runtime~main.js": "/dentaltrack/static/js/runtime~main.c30f1502.js",
+    "runtime~main.js.map": "/dentaltrack/static/js/runtime~main.c30f1502.js.map",
+    "static/css/2.2050375e.chunk.css": "/dentaltrack/static/css/2.2050375e.chunk.css",
+    "static/js/2.260ebaf9.chunk.js": "/dentaltrack/static/js/2.260ebaf9.chunk.js",
+    "static/js/2.260ebaf9.chunk.js.map": "/dentaltrack/static/js/2.260ebaf9.chunk.js.map",
+    "index.html": "/dentaltrack/index.html",
+    "precache-manifest.9053b8f6c7020bf4bcb3c1f137b384c6.js": "/dentaltrack/precache-manifest.9053b8f6c7020bf4bcb3c1f137b384c6.js",
+    "service-worker.js": "/dentaltrack/service-worker.js",
+    "static/css/2.2050375e.chunk.css.map": "/dentaltrack/static/css/2.2050375e.chunk.css.map",
+    "static/css/main.42b411c8.chunk.css.map": "/dentaltrack/static/css/main.42b411c8.chunk.css.map",
+    "static/media/material-icons.css": "/dentaltrack/static/media/MaterialIcons-Regular.d120c85b.ttf"
+  }
+}
