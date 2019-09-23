@@ -1,43 +1,23 @@
-import React, { Component, Fragment, useCallback, useState } from 'react';
-import { withRouter } from 'react-router';
-import app from '../firebase/base'
+import React, { Fragment, useCallback, useState,useContext } from 'react';
+import { withRouter, Redirect } from 'react-router';
+import app from '../firebase/base.js'
+import { AuthContext } from '../firebase/Auth'
 import logo from '../images/logo-small.png'
 
 const Login = ({history}) => {
 
   const [hidden, setHidden] = useState(true)
-  const state = {
-    login: true,
-    username: '',
-    email: '',
-    password: '',
-    hidden: true,
-  }
-
-
-  const onChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  const toggleHidden = () => {
-    console.log(hidden)
-    setHidden({
-      hidden: !hidden,
-    })
-  }
 
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
-    console.log(this.props.history)
+    const { username, password } = e.target.elements;
   }, [history])
 
-  const changeView = () => {
-      state.login = false
-  }
-    const {view, username, email, password, login} = state;
+  const { currentUser } = useContext(AuthContext)
 
+  if (currentUser) {
+    return <Redirect to="/" />;
+  }
     return (
     <Fragment>
       <main className="flex-container section">
@@ -45,30 +25,28 @@ const Login = ({history}) => {
           <div className="section center-align">
             <img src={logo} alt=""/>
           </div>
-          <h6 className="center-align brand-text"><b>{login ? 'INICIAR SESIÓN' : 'REGISTRARME'}</b></h6>
+          <h6 className="center-align brand-text"><b>'INICIAR SESIÓN' 'REGISTRARME'</b></h6>
           <form className="section row" onSubmit={handleSubmit}>
             <div className="input-field col s12 m6 offset-m3 l4 offset-l4">
               <input type="text" name='username'/>
               <label>Usuario</label>
             </div>
-            {!login &&
               <div className="input-field col s12 m6 offset-m3 l4 offset-l4">
                 <input type="email" name='email'/>
                 <label>E-mail</label>
               </div>
-            }
             <div className="input-field col s12 m6 offset-m3 l4 offset-l4">
-              <i className="material-icons suffix pointer" onClick={toggleHidden}>{hidden ? 'visibility' : 'visibility_off'}</i>
+              <i className="material-icons suffix pointer" onClick={() => setHidden(!hidden)}>{hidden ? 'visibility' : 'visibility_off'}</i>
               <input type={hidden ? 'password' : 'text'} name='password'/>
               <label>Contraseña</label>
             </div>
             <div className="input-field col s12 center-align">
-              <button className="waves-effect waves-light btn brand-bg">{login ? 'INICIAR SESIÓN' : 'REGISTRARME'}</button>
+              <button className="waves-effect waves-light btn brand-bg">'INICIAR SESIÓN' : 'REGISTRARME'</button>
             </div>
           </form>
           <div className="center-align">
             <span className="light-blue-text text-darken-1">¿Olvidaste tu contraseña?</span>
-            <br/>¿No tienes cuenta? <span className="light-blue-text text-darken-1" onClick={changeView}>Regístrate</span>
+            <br/>¿No tienes cuenta? <span className="light-blue-text text-darken-1 pointer" onClick={() => history.push('/signin')}>Regístrate</span>
           </div>
         </div>
       </main>
@@ -79,4 +57,4 @@ const Login = ({history}) => {
     )
 }
 
-export default Login
+export default withRouter(Login)

@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import Header from './Header';
-import app  from '../firebase/base';
+import app from '../firebase/base';
 
 class Home extends Component {
     render () {

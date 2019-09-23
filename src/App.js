@@ -3,6 +3,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'material-icons/iconfont/material-icons.css';
 import M from "materialize-css";
 import Login from './componentes/Login';
+import Signin from './componentes/Signin';
 import Home from './componentes/Home';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { AuthProvider } from './firebase/Auth';
@@ -18,8 +19,9 @@ class App extends Component {
     return (
       <AuthProvider>
         <Router>
-            <PrivateRoute exact path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
+          <PrivateRoute exact path='/' component={Home} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/signin' component={Signin} />
         </Router>
       </AuthProvider>
     );
